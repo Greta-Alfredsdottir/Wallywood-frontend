@@ -24,20 +24,21 @@ export function Home() {
         alt="curtain_image"
       ></img>
       <Title text={"Sidste nyt..."} />
-
-      {movieData &&
-        movieData.map((item) => {
-          return (
-            <div className={style.daddy} key={item.id}>
-              <img width="200px" src={item.image}></img>
-              <div className={style.mommy}>
-                <h4>{item.name}</h4>
-                <div>{parse(item.description)}</div>
-                <button>Læs mere</button>
+      <section className={style.mainCard}>
+        {movieData &&
+          movieData.map((item) => {
+            return (
+              <div className={style.movieImg} key={item.id}>
+                <img width="200px" src={item.image}></img>
+                <div className={style.movieTekst}>
+                  <h4>{item.name}</h4>
+                  <div>{parse(item.description)}</div>
+                  <button>Læs mere</button>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+      </section>
     </>
   );
 }
