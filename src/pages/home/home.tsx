@@ -28,11 +28,13 @@ export function Home() {
       {movieData &&
         movieData.map((item) => {
           return (
-            <div key={item.id}>
+            <div className={style.daddy} key={item.id}>
               <img width="200px" src={item.image}></img>
-              <h4>{item.name}</h4>
-              <div>{parse(item.description)}</div>
-              <button>Læs mere</button>
+              <div className={style.mommy}>
+                <h4>{item.name}</h4>
+                <div>{parse(item.description)}</div>
+                <button>Læs mere</button>
+              </div>
             </div>
           );
         })}
