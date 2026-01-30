@@ -1,19 +1,8 @@
 @use "../../styles/globals" as globals;
 
 .homePageImage {
-  height: 30vh;
+  height: 40vh;
   width: 100%;
   object-fit: cover;
-}
-.movieImg {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-}
-.movieTekst {
-  padding: 10px;
-  margin: auto;
-}
-.mainCard {
-  display: flex;
-  flex-direction: row;
+  border-radius: 8px;
 }

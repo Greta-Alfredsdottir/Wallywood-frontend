@@ -1,12 +1,13 @@
+import type { MovieData } from "../../types/movietype";
 import { useEffect, useState } from "react";
-import curtainImage from "../../assets/image/grafik-2/images/curtain.jpg";
 import { Title } from "../../components/title/title";
+import { Poster } from "../../components/poster/poster";
+import curtainImage from "../../assets/image/grafik-2/images/curtain.jpg";
 import style from "./home.module.scss";
-import type { MovieType } from "../../types/movietype";
-import parse from "html-react-parser";
+import { Grid } from "../../components/grid/grid";
 
 export function Home() {
-  const [movieData, setMovieData] = useState<Array<MovieType>>();
+  const [movieData, setMovieData] = useState<Array<MovieData>>();
 
   useEffect(() => {
     const url =
@@ -24,21 +25,20 @@ export function Home() {
         alt="curtain_image"
       ></img>
       <Title text={"Sidste nyt..."} />
-      <section className={style.mainCard}>
+      <Grid gtc={2} gap={32}>
         {movieData &&
           movieData.map((item) => {
             return (
-              <div className={style.movieImg} key={item.id}>
-                <img width="200px" src={item.image}></img>
-                <div className={style.movieTekst}>
-                  <h4>{item.name}</h4>
-                  <div>{parse(item.description)}</div>
-                  <button>Læs mere</button>
-                </div>
-              </div>
+              <Poster
+                genres={item.genres}
+                title={item.name}
+                imageUrl={item.image}
+                description={item.description}
+                id={item.id}
+              />
             );
           })}
-      </section>
+      </Grid>
     </>
   );
 }
