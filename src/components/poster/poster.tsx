@@ -8,6 +8,7 @@ interface PosterProps {
   title: string;
   description?: string;
   genres: Array<Genre>;
+  price?: number;
 }
 
 export function Poster({
@@ -16,6 +17,7 @@ export function Poster({
   title,
   description,
   genres,
+  price,
 }: PosterProps) {
   return (
     <div key={id} className={style.posterStyle}>
@@ -30,6 +32,7 @@ export function Poster({
           genres.map((genre: Genre, index) => {
             return <span key={index}>{genre.title}</span>;
           })}
+        {price && <p>Price: {price}kr</p>}
         <button>Læs mere</button>
       </div>
     </div>
