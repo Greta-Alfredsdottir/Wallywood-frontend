@@ -16,10 +16,9 @@ export function Footer() {
         </div>
       </section>
       <section>
-        <img src="public/facebook.png" alt="" />
-
         <p>icon</p>
         <p>icon</p>
+        <img src="public/facebook.png" alt="Facebook" />
         <p>icon</p>
       </section>
     </footer>
