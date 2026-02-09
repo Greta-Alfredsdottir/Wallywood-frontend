@@ -1,5 +1,7 @@
 import { NavLink } from "react-router";
 import style from "./navbar.module.scss";
+import { useContext } from "react";
+import { AuthContext } from "../../context/authcontext";
 
 interface NavbarProps {
   logoNav: string;
@@ -8,12 +10,17 @@ interface NavbarProps {
 
 export function Navbar(props: NavbarProps) {
   const { logoNav, linksNav } = props;
+
+  const { userData, logout } = useContext(AuthContext);
+
   return (
     <nav className={style.navbarStyle}>
       <h3>{logoNav}</h3>
       <ul>
         {linksNav.map((item) => {
-          return (
+          return item.name === "login" && userData ? (
+            <li onClick={logout}>LOGOUT</li>
+          ) : (
             <li key={item.path}>
               <NavLink to={item.path}>{item.name.toUpperCase()}</NavLink>
             </li>
